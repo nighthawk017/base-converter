@@ -4,7 +4,7 @@ def get_integer_part(str_number):
     return int(str_number.split('.')[0])
 
 def get_fractionary_part(str_number):
-    return int(str_number.split('.')[1])
+    return str_number.split('.')[1]
 
 def convert_integer_part(value, target_base):
     result = ''
@@ -14,17 +14,24 @@ def convert_integer_part(value, target_base):
     result = result[::-1]
     return result
 
-def convert_fractionary_part(value, target_base):
+def convert_fractionary_part(value_str, target_base):
     result = ''
+    length = len(value_str)
+    value = int(value_str)
+    digit_depth = len(str(value))
+
     while value > 0:
+        if digit_depth <= 0:
+            break
         prior_len = len(str(value))
         value = value * target_base
         after_len = len(str(value))
-        if prior_len == after_len:
+        if after_len <= length:
             result = result + '0'
         else:
             result = result + str(value)[0]
-        value = int(str(value)[1:])
+            value = int(str(value)[1:])
+        digit_depth = digit_depth - 1
     return result
 
 def main():
