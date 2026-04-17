@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pylint VS Code extension stats cache
+*.stats
+
+# Qodo AI tool local config
+.qodo/
