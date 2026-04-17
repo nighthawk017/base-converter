@@ -1,5 +1,5 @@
 import pytest
-from src import converter
+from base_converter import converter
 
 
 # --- convert_integer_part ---
